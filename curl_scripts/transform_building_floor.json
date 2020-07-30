@@ -1,0 +1,44 @@
+{
+  "source": {
+    "index": [
+      "covid"
+    ]
+  },
+  "pivot": {
+    "group_by": {
+      "building.keyword": {
+        "terms": {
+          "field": "building.keyword"
+        }
+      },
+      "floor.keyword": {
+        "terms": {
+          "field": "floor.keyword"
+        }
+      },
+      "@timestamp": {
+        "date_histogram": {
+          "field": "@timestamp",
+          "calendar_interval": "1h"
+        }
+      }
+    },
+    "aggregations": {
+      "mac.keyword.cardinality": {
+        "cardinality": {
+          "field": "mac.keyword"
+        }
+      }
+    }
+  },
+  "description": "Stats per building per floor",
+  "dest": {
+    "index": "covid-building-floor"
+  },
+  "sync": {
+    "time": {
+      "field": "@timestamp",
+      "delay": "60s"
+    }
+  }
+}

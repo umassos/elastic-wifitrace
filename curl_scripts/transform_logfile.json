@@ -1,0 +1,59 @@
+{
+  "source": {
+    "index": [
+      "covid"
+    ]
+  },
+  "pivot": {
+    "group_by": {
+      "log.file.path.keyword": {
+        "terms": {
+          "field": "log.file.path.keyword"
+        }
+      },
+      "@timestamp": {
+        "date_histogram": {
+          "field": "@timestamp",
+          "calendar_interval": "1h"
+        }
+      }
+    },
+    "aggregations": {
+      "ap_name.keyword.cardinality": {
+        "cardinality": {
+          "field": "ap_name.keyword"
+        }
+      },
+      "building.keyword.cardinality": {
+        "cardinality": {
+          "field": "building.keyword"
+        }
+      },
+      "mac.keyword.cardinality": {
+        "cardinality": {
+          "field": "mac.keyword"
+        }
+      },
+      "user_name.keyword.cardinality": {
+        "cardinality": {
+          "field": "user_name.keyword"
+        }
+      },
+      "controller.keyword.cardinality": {
+        "cardinality": {
+          "field": "controller.keyword"
+        }
+      }
+    }
+  },
+  "description": "Stats on log files",
+  "dest": {
+    "index": "covid-logfile"
+  },
+  "sync": {
+    "time": {
+      "field": "@timestamp",
+      "delay": "60s"
+    }
+  }
+}
