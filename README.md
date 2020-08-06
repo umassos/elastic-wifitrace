@@ -1,7 +1,7 @@
 # WiFiTrace: Network-centric WiFi Contact Tracing Using ElasticSearch
 
 
-Note: WiFiTrace is available in two versions: python and ElasticSearch. This git repository contains that ElastiSearch version of the tool.  The python version is available here [github.com/umassus/wifitrace](https://github.com/umassus/wifitrace) 
+Note: WiFiTrace is available in two versions: python and ElasticSearch. This git repository contains that ElastiSearch version of the tool.  The python version is available here [github.com/umassos/wifitrace](https://github.com/umassos/wifitrace) 
 
 
 
