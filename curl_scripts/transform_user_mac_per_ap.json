@@ -1,0 +1,56 @@
+{
+    "source": {
+      "index": [
+        "covid"
+      ]
+    },
+    "pivot": {
+      "group_by": {
+        "@timestamp": {
+          "date_histogram": {
+            "field": "@timestamp",
+            "calendar_interval": "1h"
+          }
+        },
+        "ap_name": {
+          "terms": {
+            "field": "ap_name.keyword"
+          }
+        },
+        "building.keyword": {
+          "terms": {
+            "field": "building.keyword"
+          }
+        },
+        "floor.keyword": {
+          "terms": {
+            "field": "floor.keyword"
+          }
+        }
+      },
+      "aggregations": {
+        "mac.keyword.cardinality": {
+          "cardinality": {
+            "field": "mac.keyword"
+          }
+        },
+        "user_name.keyword.cardinality": {
+          "cardinality": {
+            "field": "user_name.keyword"
+          }
+        }
+      }
+    },
+    "description": "Hourly users and MACs per AP/Building/Floor",
+    "dest": {
+      "index": "covid-user-mac-per-ap",
+      "pipeline": "enrich_occupancy"
+    },
+    "sync": {
+      "time": {
+        "field": "@timestamp",
+        "delay": "600s"
+      }
+    }
+}
+  

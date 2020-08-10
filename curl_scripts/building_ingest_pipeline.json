@@ -1,0 +1,48 @@
+{
+    "processors": [ 
+      { 
+        "enrich": { 
+          "policy_name": "covid-building-enrich", 
+          "field": "ap_name", 
+          "target_field": "building_info",
+          "on_failure" : [
+            {
+              "set" : {
+                "field" : "error",
+                "value" : "Error in enrich processor: {{ _ingest.on_failure_message }}"
+              }
+            }
+          ],
+          "ignore_missing": true,
+          "ignore_failure": true
+        }
+      },
+      { 
+        "set": {
+          "if" : "ctx.building_info !=null",
+          "field": "building", 
+          "value": "{{building_info.building}}"
+        } 
+      },       
+      { 
+        "set": {
+          "if" : "ctx.building_info !=null",
+          "field": "floor", 
+          "value": "{{building_info.floor}}"
+        } 
+      },       
+      { 
+        "set": {
+          "if" : "ctx.building_info !=null",
+          "field": "room", 
+          "value": "{{building_info.room}}"
+        } 
+      },
+      {
+        "remove": { 
+          "if" : "ctx.building_info !=null",
+          "field": ["building_info.ap_name","building_info.building","building_info.floor","building_info.room"]
+        }
+      }
+    ]
+}

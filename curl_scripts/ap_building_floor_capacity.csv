@@ -1,0 +1,5 @@
+ap_name,building,floor,Full building name,Department,room,Space description,Normal Capacity,Target Capacity,Normal Floor Capacity,Target Floor Capacity,Normal Building Capacity,Target Building Capacity
+358NP-101-1,358NP,1,358 North Pleasant,Communication Disorders,101,Conference Room,35,7,156,71,381,
+CC-1102-1,CC,11,Lincoln Campus Center,Unknown,1102,Unknown,-1,-1,183,64,204,170
+ILC-N251-5,ILC,2,Integrative Learning Center,Unknown,N251,Unknown,-1,-1,1434,338,7230,2011
+LIBR-1501-2,LIBR,15,DuBois Library,Unknown,1501,Unknown,-1,-1,-1,-1,6555,3473

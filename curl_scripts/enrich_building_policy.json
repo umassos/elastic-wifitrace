@@ -1,0 +1,7 @@
+{
+    "match" : {
+      "indices" : [ "covid-ap-occupancy" ],
+      "match_field" : "ap_name",
+      "enrich_fields" : [ "building", "floor", "room", "Full building name", "Department", "Room", "Space description"]
+    }
+}
