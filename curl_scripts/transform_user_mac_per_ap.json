@@ -41,7 +41,7 @@
         }
       }
     },
-    "description": "Hourly users and MACs per AP/Building/Floor",
+    "description": "Hourly users and MACs per AP/Building/Floor with occupancy data",
     "dest": {
       "index": "covid-user-mac-per-ap",
       "pipeline": "enrich_occupancy"
