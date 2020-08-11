@@ -1,0 +1,171 @@
+{
+    "processors": [ 
+      { 
+         "set": {
+          "field": "building_floor",
+          "value": "{{building.keyword}}-{{floor.keyword}}"
+        }
+      },
+     {
+        "enrich": { 
+          "policy_name": "covid-building-occupancy-enrich", 
+          "field": "building_floor", 
+          "target_field": "occupancy",
+          "on_failure" : [
+            {
+              "set" : {
+                "field" : "error",
+                "value" : "Error in enrich processor: {{ _ingest.on_failure_message }}"
+              }
+            }
+          ],
+          "ignore_missing": true,
+          "ignore_failure": true
+        }
+      },
+      {
+        "set": {
+          "field": "macs",
+          "value": "{{mac.keyword.cardinality}}"
+        }
+      },
+      {
+        "set": {
+          "field": "users",
+          "value": "{{user_name.keyword.cardinality}}"
+        }
+      },
+      {
+        "convert" : {
+          "field" : "macs",
+          "type": "float"
+        }
+      },
+      {
+        "convert" : {
+          "field" : "users",
+          "type": "float"
+        }
+      },
+      {
+        "script": {
+          "lang": "painless",
+          "if": "ctx.macs != null && ctx.occupancy != null", 
+          "source": "if (ctx.occupancy['Target Floor Capacity'] == null || ctx.occupancy['Target Floor Capacity'] <= 0) { ctx.mac_floor_target_percent = 0; } else { ctx.mac_floor_target_percent = ctx.macs / (float)ctx.occupancy['Target Floor Capacity'] }",
+          "on_failure" : [
+            {
+              "set" : {
+                "field" : "error",
+                "value" : "Error in 1st script processor: {{ _ingest.on_failure_message }}"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "script": {
+          "lang": "painless",
+          "if": "ctx.users != null && ctx.occupancy != null", 
+          "source": "if (ctx.occupancy['Target Floor Capacity'] == null || ctx.occupancy['Target Floor Capacity'] <= 0) { ctx.user_floor_target_percent = 0; } else { ctx.user_floor_target_percent = ctx.users / (float)ctx.occupancy['Target Floor Capacity'] }",
+          "on_failure" : [
+            {
+              "set" : {
+                "field" : "error",
+                "value" : "Error in 2nd script processor: {{ _ingest.on_failure_message }}"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "script": {
+          "lang": "painless",
+          "if": "ctx.macs != null && ctx.occupancy != null", 
+          "source": "if (ctx.occupancy['Normal Floor Capacity'] == null || ctx.occupancy['Normal Floor Capacity'] <= 0) { ctx.mac_floor_normal_percent = 0; } else { ctx.mac_floor_normal_percent = ctx.macs / (float)ctx.occupancy['Normal Floor Capacity'] }",
+          "on_failure" : [
+            {
+              "set" : {
+                "field" : "error",
+                "value" : "Error in 3rd script processor: {{ _ingest.on_failure_message }}"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "script": {
+          "lang": "painless",
+          "if": "ctx.users != null && ctx.occupancy != null", 
+          "source": "if (ctx.occupancy['Normal Floor Capacity'] == null || ctx.occupancy['Normal Floor Capacity'] <=0) { ctx.user_floor_normal_percent = 0; } else { ctx.user_floor_normal_percent = ctx.users / (float)ctx.occupancy['Normal Floor Capacity'] }",
+          "on_failure" : [
+            {
+              "set" : {
+                "field" : "error",
+                "value" : "Error in 4th script processor: {{ _ingest.on_failure_message }}"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "script": {
+          "lang": "painless",
+          "if": "ctx.macs != null && ctx.occupancy != null", 
+          "source": "if (ctx.occupancy['Target Building Capacity'] == null || ctx.occupancy['Target Building Capacity'] <= 0) { ctx.mac_building_target_percent = 0; } else { ctx.mac_building_target_percent = ctx.macs / (float)ctx.occupancy['Target Building Capacity'] }",
+          "on_failure" : [
+            {
+              "set" : {
+                "field" : "error",
+                "value" : "Error in 1st script processor: {{ _ingest.on_failure_message }}"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "script": {
+          "lang": "painless",
+          "if": "ctx.users != null && ctx.occupancy != null", 
+          "source": "if (ctx.occupancy['Target Building Capacity'] == null || ctx.occupancy['Target Building Capacity'] <= 0) { ctx.user_building_target_percent = 0; } else { ctx.user_building_target_percent = ctx.users / (float)ctx.occupancy['Target Building Capacity'] }",
+          "on_failure" : [
+            {
+              "set" : {
+                "field" : "error",
+                "value" : "Error in 2nd script processor: {{ _ingest.on_failure_message }}"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "script": {
+          "lang": "painless",
+          "if": "ctx.macs != null && ctx.occupancy != null", 
+          "source": "if (ctx.occupancy['Normal Building Capacity'] == null || ctx.occupancy['Normal Building Capacity'] <= 0) { ctx.mac_building_normal_percent = 0; } else { ctx.mac_building_normal_percent = ctx.macs / (float)ctx.occupancy['Normal Building Capacity'] }",
+          "on_failure" : [
+            {
+              "set" : {
+                "field" : "error",
+                "value" : "Error in 3rd script processor: {{ _ingest.on_failure_message }}"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "script": {
+          "lang": "painless",
+          "if": "ctx.users != null && ctx.occupancy != null", 
+          "source": "if (ctx.occupancy['Normal Building Capacity'] == null || ctx.occupancy['Normal Building Capacity'] ==0) { ctx.user_building_normal_percent = 0; } else { ctx.user_building_normal_percent = ctx.users / (float)ctx.occupancy['Normal Building Capacity'] }",
+          "on_failure" : [
+            {
+              "set" : {
+                "field" : "error",
+                "value" : "Error in 4th script processor: {{ _ingest.on_failure_message }}"
+              }
+            }
+          ]
+        }
+      }
+    ]
+}

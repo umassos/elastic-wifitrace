@@ -28,12 +28,18 @@
         "cardinality": {
           "field": "mac.keyword"
         }
+      },
+      "user_name.keyword.cardinality": {
+        "cardinality": {
+          "field": "user_name.keyword"
+        }
       }
     }
   },
   "description": "Stats per building per floor",
   "dest": {
-    "index": "covid-building-floor"
+    "index": "covid-building-floor",
+    "pipeline": "enrich_building_occupancy"
   },
   "sync": {
     "time": {
