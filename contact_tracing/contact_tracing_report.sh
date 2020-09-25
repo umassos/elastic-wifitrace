@@ -13,6 +13,8 @@ CONTACT_LENGTH_IN_SECONDS=60*15
 mkdir -p $TEMP_FOLDER
 mkdir -p $REPORT_FOLDER
 
+REPORT_TIME=`date +%F-%T`
+
 # Remove problematic characters from a possibly encrypted user name to prevent issue with filenames
 file1=`echo "$1" | tr -d '/:;'`
 
@@ -116,33 +118,33 @@ done
 
 
 echo --- Comparing sessions to determine potential contact
-# Generate contact info per AP into report/contacts_ap_USERNAME
-awk -f compare_sessions.awk -F"," -v min_session_length_in_seconds=$CONTACT_LENGTH_IN_SECONDS $TEMP_FOLDER/locations_${file1} $TEMP_FOLDER/user_sessions_${file1} > $REPORT_FOLDER/contacts_ap_${file1}
+# Generate contact info per AP into report/contacts_ap_USERNAME.csv
+awk -f compare_sessions.awk -F"," -v min_session_length_in_seconds=$CONTACT_LENGTH_IN_SECONDS $TEMP_FOLDER/locations_${file1} $TEMP_FOLDER/user_sessions_${file1} > $REPORT_FOLDER/contacts_ap_${file1}_${REPORT_TIME}.csv
 echo Found `cat $REPORT_FOLDER/contacts_ap_${file1} | wc -l` contact periods at APs
-# Generate contact info per building/floor into report/contacts_building_USERNAME
-awk -f compare_building_sessions.awk -F"," -v min_session_length_in_seconds=$CONTACT_LENGTH_IN_SECONDS $TEMP_FOLDER/locations_${file1} $TEMP_FOLDER/user_sessions_building_${file1} > $REPORT_FOLDER/contacts_building_${file1}
+# Generate contact info per building/floor into report/contacts_building_USERNAME.csv
+awk -f compare_building_sessions.awk -F"," -v min_session_length_in_seconds=$CONTACT_LENGTH_IN_SECONDS $TEMP_FOLDER/locations_${file1} $TEMP_FOLDER/user_sessions_building_${file1} > $REPORT_FOLDER/contacts_building_${file1}_${REPORT_TIME}.csv
 echo Found `cat $REPORT_FOLDER/contacts_building_ap_${file1} | wc -l` contact periods in buildings
 
-echo ---- Generating final contact tracing report to $REPORT_FOLDER/contact_report_${file1}
-echo "### Contact tracing report for user " $1 " for the past " $2 " days ###" > $REPORT_FOLDER/contact_report_${file1}
-echo "" >> $REPORT_FOLDER/contact_report_${file1}
-echo "---------------------------------------------------" >> $REPORT_FOLDER/contact_report_${file1}
-echo "Top list of contacts per AP (longest contact first)" >> $REPORT_FOLDER/contact_report_${file1}
-echo "---------------------------------------------------" >> $REPORT_FOLDER/contact_report_${file1}
-awk -F"," 'END { for (E in a) print "User " E " - Total: " a[E] " min" } { a[$2] += $6 }' $REPORT_FOLDER/contacts_ap_${file1} | sort -k5 -n -r >> $REPORT_FOLDER/contact_report_${file1}
-echo "" >> $REPORT_FOLDER/contact_report_${file1}
-echo "--------------------------------" >> $REPORT_FOLDER/contact_report_${file1}
-echo "Detail of contact periods at APs" >> $REPORT_FOLDER/contact_report_${file1}
-echo "--------------------------------" >> $REPORT_FOLDER/contact_report_${file1}
-awk -F"," '{print "Contact with " $2 " at AP " $3 " from " $4 " to " $5 " (duration " $6 " minutes)"}' $REPORT_FOLDER/contacts_ap_${file1} >> $REPORT_FOLDER/contact_report_${file1}
-echo "" >> $REPORT_FOLDER/contact_report_${file1}
-echo "---------------------------------------------------------" >> $REPORT_FOLDER/contact_report_${file1}
-echo "Top list of contacts per building (longest contact first)" >> $REPORT_FOLDER/contact_report_${file1}
-echo "---------------------------------------------------------" >> $REPORT_FOLDER/contact_report_${file1}
-awk -F"," 'END { for (E in a) print "User " E " - Total: " a[E] " min" } { a[$2] += $6 }' $REPORT_FOLDER/contacts_building_${file1} | sort -k5 -n -r >> $REPORT_FOLDER/contact_report_${file1}
-echo "" >> $REPORT_FOLDER/contact_report_${file1}
-echo "--------------------------------------" >> $REPORT_FOLDER/contact_report_${file1}
-echo "Detail of contact periods in buildings" >> $REPORT_FOLDER/contact_report_${file1}
-echo "--------------------------------------" >> $REPORT_FOLDER/contact_report_${file1}
-awk -F"," '{print "Contact with " $2 " in building " $7 " floor " $8 " from " $4 " to " $5 " (duration " $6 " minutes)"}' $REPORT_FOLDER/contacts_building_${file1} >> $REPORT_FOLDER/contact_report_${file1}
-cat $REPORT_FOLDER/contact_report_${file1}
+echo ---- Generating final contact tracing report to $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+echo "### Contact tracing report for user " $1 " for the past " $2 " days ###" > $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+echo "" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+echo "---------------------------------------------------" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+echo "Top list of contacts per AP (longest contact first)" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+echo "---------------------------------------------------" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+awk -F"," 'END { for (E in a) print "User " E " - Total: " a[E] " min" } { a[$2] += $6 }' $REPORT_FOLDER/contacts_ap_${file1}_${REPORT_TIME}.csv | sort -k5 -n -r >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+echo "" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+echo "--------------------------------" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+echo "Detail of contact periods at APs" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+echo "--------------------------------" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+awk -F"," '{print "Contact with " $2 " at AP " $3 " from " $4 " to " $5 " (duration " $6 " minutes)"}' $REPORT_FOLDER/contacts_ap_${file1}_${REPORT_TIME}.csv >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+echo "" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+echo "---------------------------------------------------------" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+echo "Top list of contacts per building (longest contact first)" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+echo "---------------------------------------------------------" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+awk -F"," 'END { for (E in a) print "User " E " - Total: " a[E] " min" } { a[$2] += $6 }' $REPORT_FOLDER/contacts_building_${file1}_${REPORT_TIME}.csv | sort -k5 -n -r >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+echo "" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+echo "--------------------------------------" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+echo "Detail of contact periods in buildings" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+echo "--------------------------------------" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+awk -F"," '{print "Contact with " $2 " in building " $7 " floor " $8 " from " $4 " to " $5 " (duration " $6 " minutes)"}' $REPORT_FOLDER/contacts_building_${file1}_${REPORT_TIME}.csv >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+cat $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
