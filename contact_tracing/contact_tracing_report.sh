@@ -18,10 +18,10 @@ REPORT_TIME=`date +%F-%T`
 # Remove problematic characters from a possibly encrypted user name to prevent issue with filenames
 file1=`echo "$1" | tr -d '/:;'`
 
-# We retrieve the list of all MAC addresses for the user even if they were not seen in the past $2 days
+# We retrieve the list of all MAC addresses for the user in the past $2 days
 # Results are stored in tmp/macs_USERNAME
 echo --- Retrieving list of MAC addresses for user $1
-echo "SELECT mac FROM covid WHERE user_name='$1' GROUP BY mac;" | $ELASTIC_BIN_PATH/elasticsearch-sql-cli 2> /dev/null | awk '/--------/{flag=1;next}/sql>/{flag=0}flag' | head -n -1 > $TEMP_FOLDER/macs_$file1
+echo "SELECT mac FROM covid WHERE user_name='$1' AND mac IS NOT NULL AND \"@timestamp\">TODAY() - INTERVAL $2 days GROUP BY mac;" | $ELASTIC_BIN_PATH/elasticsearch-sql-cli 2> /dev/null | awk '/--------/{flag=1;next}/sql>/{flag=0}flag' | head -n -1 > $TEMP_FOLDER/macs_$file1
 cat $TEMP_FOLDER/macs_$file1
 
 # Get all records timestamp, assoc/diassoc, ap_name,building,floor for the given user
@@ -120,10 +120,10 @@ done
 echo --- Comparing sessions to determine potential contact
 # Generate contact info per AP into report/contacts_ap_USERNAME.csv
 awk -f compare_sessions.awk -F"," -v min_session_length_in_seconds=$CONTACT_LENGTH_IN_SECONDS $TEMP_FOLDER/locations_${file1} $TEMP_FOLDER/user_sessions_${file1} > $REPORT_FOLDER/contacts_ap_${file1}_${REPORT_TIME}.csv
-echo Found `cat $REPORT_FOLDER/contacts_ap_${file1} | wc -l` contact periods at APs
+echo Found `cat $REPORT_FOLDER/contacts_ap_${file1}_${REPORT_TIME}.csv | wc -l` contact periods at APs
 # Generate contact info per building/floor into report/contacts_building_USERNAME.csv
 awk -f compare_building_sessions.awk -F"," -v min_session_length_in_seconds=$CONTACT_LENGTH_IN_SECONDS $TEMP_FOLDER/locations_${file1} $TEMP_FOLDER/user_sessions_building_${file1} > $REPORT_FOLDER/contacts_building_${file1}_${REPORT_TIME}.csv
-echo Found `cat $REPORT_FOLDER/contacts_building_ap_${file1} | wc -l` contact periods in buildings
+echo Found `cat $REPORT_FOLDER/contacts_building_${file1}_${REPORT_TIME}.csv | wc -l` contact periods in buildings
 
 echo ---- Generating final contact tracing report to $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
 echo "### Contact tracing report for user " $1 " for the past " $2 " days ###" > $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
