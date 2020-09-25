@@ -126,7 +126,10 @@ awk -f compare_building_sessions.awk -F"," -v min_session_length_in_seconds=$CON
 echo Found `cat $REPORT_FOLDER/contacts_building_${file1}_${REPORT_TIME}.csv | wc -l` contact periods in buildings
 
 echo ---- Generating final contact tracing report to $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
-echo "### Contact tracing report for user " $1 " for the past " $2 " days ###" > $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+echo "##################################################################" > $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+echo "### Contact tracing report for user" $1 "for the past" $2 "days " >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+echo "### Generated on " ${REPORT_TIME} >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+echo "##################################################################" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
 echo "" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
 echo "---------------------------------------------------" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
 echo "Top list of contacts per AP (longest contact first)" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
@@ -147,4 +150,14 @@ echo "--------------------------------------" >> $REPORT_FOLDER/contact_report_$
 echo "Detail of contact periods in buildings" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
 echo "--------------------------------------" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
 awk -F"," '{print "Contact with " $2 " in building " $7 " floor " $8 " from " $4 " to " $5 " (duration " $6 " minutes) - Traced user at AP " $3 " - Contact user at AP " $9'} $REPORT_FOLDER/contacts_building_${file1}_${REPORT_TIME}.csv >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+
+echo --- Generating Json report document and uploading to covid-reports index
+echo "{\"traced_user\":\""$1"\",\"report_date\":\""${REPORT_TIME}"\",\"report\":\""`cat $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt`"\"}" > $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.json
+curl -XPOST http://localhost:9200/covid-reports/doc -H "Content-Type: application/json" -d @$REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.json
+
+echo !!! Invoke Logstash to upload the CSV data to Elasticsearch for the Covid tracing dashboard
+
+echo --- Displaying report
 cat $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+
+
