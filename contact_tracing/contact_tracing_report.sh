@@ -146,5 +146,5 @@ echo "" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
 echo "--------------------------------------" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
 echo "Detail of contact periods in buildings" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
 echo "--------------------------------------" >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
-awk -F"," '{print "Contact with " $2 " in building " $7 " floor " $8 " from " $4 " to " $5 " (duration " $6 " minutes)"}' $REPORT_FOLDER/contacts_building_${file1}_${REPORT_TIME}.csv >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
+awk -F"," '{print "Contact with " $2 " in building " $7 " floor " $8 " from " $4 " to " $5 " (duration " $6 " minutes) - Traced user at AP " $3 " - Contact user at AP " $9'} $REPORT_FOLDER/contacts_building_${file1}_${REPORT_TIME}.csv >> $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt
 cat $REPORT_FOLDER/contact_report_${file1}_${REPORT_TIME}.txt

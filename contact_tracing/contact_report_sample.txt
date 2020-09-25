@@ -1,0 +1,122 @@
+##################################################################
+### Contact tracing report for user john_smith for the past 3 days
+### Generated on  2020-09-25-15:41:21
+##################################################################
+
+---------------------------------------------------
+Top list of contacts per AP (longest contact first)
+---------------------------------------------------
+User user1 - Total: 1450.65 min
+User user2 - Total: 998.583 min
+User user3 - Total: 830.367 min
+User user4 - Total: 813.8 min
+User user5 - Total: 366.883 min
+User user6 - Total: 356.384 min
+User user7 - Total: 30.4 min
+
+--------------------------------
+Detail of contact periods at APs
+--------------------------------
+Contact with user5 at AP CICS-107-1 from 2020-09-23T10:44:37.000Z to 2020-09-23T13:48:30.000Z (duration 183.883 minutes)
+Contact with user5 at AP CICS-107-1 from 2020-09-23T10:44:37.000Z to 2020-09-23T12:44:39.000Z (duration 120.033 minutes)
+Contact with user5 at AP CICS-107-1 from 2020-09-23T12:45:33.000Z to 2020-09-23T13:48:31.000Z (duration 62.9667 minutes)
+Contact with user4 at AP CICS-110-1 from 2020-09-22T23:20:45.000Z to 2020-09-23T12:55:55.000Z (duration 813.8 minutes)
+Contact with user7 at AP CICS-110-1 from 2020-09-23T08:54:10.000Z to 2020-09-23T09:24:34.000Z (duration 30.4 minutes)
+Contact with user3 at AP CICS-110-1 from 2020-09-22T23:20:45.000Z to 2020-09-23T13:12:37.000Z (duration 830.367 minutes)
+Contact with user1 at AP HR-116-1 from 2020-09-22T07:39:46.000Z to 2020-09-22T17:12:20.000Z (duration 574.233 minutes)
+Contact with user1 at AP HR-116-1 from 2020-09-22T07:39:46.000Z to 2020-09-22T19:57:25.000Z (duration 739.317 minutes)
+Contact with user1 at AP HR-116-1 from 2020-09-22T19:57:27.000Z to 2020-09-22T20:32:36.000Z (duration 33.4833 minutes)
+Contact with user2 at AP HR-116-1 from 2020-09-22T13:44:34.000Z to 2020-09-22T17:12:20.000Z (duration 209.5 minutes)
+Contact with user2 at AP HR-116-1 from 2020-09-22T13:44:34.000Z to 2020-09-22T19:57:25.000Z (duration 374.583 minutes)
+Contact with user2 at AP HR-116-1 from 2020-09-22T13:44:34.000Z to 2020-09-22T20:37:20.000Z (duration 414.5 minutes)
+Contact with user6 at AP HR-116-1 from 2020-09-22T15:51:33.000Z to 2020-09-22T17:12:20.000Z (duration 82.5667 minutes)
+Contact with user6 at AP HR-116-1 from 2020-09-22T18:10:24.000Z to 2020-09-22T19:57:25.000Z (duration 108.8 minutes)
+Contact with user6 at AP HR-116-1 from 2020-09-22T18:10:24.000Z to 2020-09-22T20:37:20.000Z (duration 148.717 minutes)
+Contact with user6 at AP HR-116-1 from 2020-09-23T14:51:34.000Z to 2020-09-23T15:07:52.000Z (duration 16.3 minutes)
+Contact with user1 at AP HR-316A-1 from 2020-09-23T18:42:27.000Z to 2020-09-23T20:26:04.000Z (duration 103.617 minutes)
+
+---------------------------------------------------------
+Top list of contacts per building (longest contact first)
+---------------------------------------------------------
+User user1 - Total: 4469.44 min
+User user8 - Total: 2703.62 min
+User user3 - Total: 2492.47 min
+User user4 - Total: 2334.03 min
+User user9 - Total: 1725.93 min
+User user13 - Total: 1438.88 min
+User user2 - Total: 1422.9 min
+User user5 - Total: 1119.87 min
+User user6 - Total: 613.3 min
+User user10 - Total: 225.417 min
+User user11 - Total: 166.983 min
+User user12 - Total: 121.933 min
+User user7 - Total: 60.8 min
+
+--------------------------------------
+Detail of contact periods in buildings
+--------------------------------------
+Contact with user13 in building CICS floor 2 from 2020-09-22T23:30:40.000Z to 2020-09-23T23:26:50.000Z (duration 1438.88 minutes) - Traced user at AP JA-203-1 - Contact user at AP JA-203-1
+Contact with user4 in building CICS floor 1 from 2020-09-22T15:20:47.000Z to 2020-09-22T17:18:11.000Z (duration 120.833 minutes) - Traced user at AP CICS-110-1 - Contact user at AP CICS-102-1
+Contact with user4 in building CICS floor 1 from 2020-09-22T15:20:47.000Z to 2020-09-22T21:03:32.000Z (duration 346.183 minutes) - Traced user at AP CICS-110-1 - Contact user at AP CICS-102-1
+Contact with user4 in building CICS floor 1 from 2020-09-22T21:03:32.000Z to 2020-09-23T12:55:55.000Z (duration 948.95 minutes) - Traced user at AP CICS-110-1 - Contact user at AP CICS-107-1
+Contact with user4 in building CICS floor 1 from 2020-09-22T23:20:45.000Z to 2020-09-23T12:55:55.000Z (duration 811.733 minutes) - Traced user at AP CICS-110-1 - Contact user at AP CICS-110-1
+Contact with user7 in building CICS floor 1 from 2020-09-23T08:54:10.000Z to 2020-09-23T09:24:34.000Z (duration 30.4 minutes) - Traced user at AP CICS-110-1 - Contact user at AP CICS-107-1
+Contact with user7 in building CICS floor 1 from 2020-09-23T08:54:10.000Z to 2020-09-23T09:24:34.000Z (duration 30.4 minutes) - Traced user at AP CICS-110-1 - Contact user at AP CICS-110-1
+Contact with user5 in building CICS floor 1 from 2020-09-23T10:44:37.000Z to 2020-09-23T13:48:30.000Z (duration 183.883 minutes) - Traced user at AP CICS-107-1 - Contact user at AP CICS-107-1
+Contact with user5 in building CICS floor 1 from 2020-09-23T10:44:37.000Z to 2020-09-23T13:48:30.000Z (duration 183.883 minutes) - Traced user at AP CICS-107-1 - Contact user at AP CICS-110-1
+Contact with user5 in building CICS floor 1 from 2020-09-23T10:50:14.000Z to 2020-09-23T14:03:17.000Z (duration 193.05 minutes) - Traced user at AP CICS-102-1 - Contact user at AP CICS-107-1
+Contact with user5 in building CICS floor 1 from 2020-09-23T10:50:14.000Z to 2020-09-23T14:03:17.000Z (duration 193.05 minutes) - Traced user at AP CICS-102-1 - Contact user at AP CICS-110-1
+Contact with user5 in building CICS floor 1 from 2020-09-23T10:44:37.000Z to 2020-09-23T12:44:39.000Z (duration 120.033 minutes) - Traced user at AP CICS-107-1 - Contact user at AP CICS-107-1
+Contact with user5 in building CICS floor 1 from 2020-09-23T10:44:37.000Z to 2020-09-23T12:44:39.000Z (duration 120.033 minutes) - Traced user at AP CICS-107-1 - Contact user at AP CICS-110-1
+Contact with user5 in building CICS floor 1 from 2020-09-23T12:45:33.000Z to 2020-09-23T13:48:31.000Z (duration 62.9667 minutes) - Traced user at AP CICS-107-1 - Contact user at AP CICS-107-1
+Contact with user5 in building CICS floor 1 from 2020-09-23T12:45:33.000Z to 2020-09-23T13:48:31.000Z (duration 62.9667 minutes) - Traced user at AP CICS-107-1 - Contact user at AP CICS-110-1
+Contact with user3 in building CICS floor 1 from 2020-09-22T13:25:06.000Z to 2020-09-22T17:18:11.000Z (duration 236.767 minutes) - Traced user at AP CICS-110-1 - Contact user at AP CICS-102-1
+Contact with user3 in building CICS floor 1 from 2020-09-22T13:25:06.000Z to 2020-09-22T21:03:32.000Z (duration 462.117 minutes) - Traced user at AP CICS-110-1 - Contact user at AP CICS-102-1
+Contact with user3 in building CICS floor 1 from 2020-09-22T21:03:32.000Z to 2020-09-23T13:12:37.000Z (duration 965.4 minutes) - Traced user at AP CICS-110-1 - Contact user at AP CICS-107-1
+Contact with user3 in building CICS floor 1 from 2020-09-22T23:20:45.000Z to 2020-09-23T13:12:37.000Z (duration 828.183 minutes) - Traced user at AP CICS-110-1 - Contact user at AP CICS-110-1
+Contact with user1 in building CICS floor 1 from 2020-09-22T08:36:20.000Z to 2020-09-22T17:18:11.000Z (duration 525.55 minutes) - Traced user at AP CICS-110-1 - Contact user at AP CICS-102-1
+Contact with user1 in building CICS floor 1 from 2020-09-22T20:37:51.000Z to 2020-09-22T21:05:36.000Z (duration 24.05 minutes) - Traced user at AP CICS-110-1 - Contact user at AP CICS-102-1
+Contact with user8 in building CICS floor 1 from 2020-09-22T16:45:05.000Z to 2020-09-22T17:18:11.000Z (duration 36.8333 minutes) - Traced user at AP CICS-101-1 - Contact user at AP CICS-102-1
+Contact with user8 in building CICS floor 1 from 2020-09-22T16:45:05.000Z to 2020-09-22T21:03:32.000Z (duration 262.183 minutes) - Traced user at AP CICS-101-1 - Contact user at AP CICS-102-1
+Contact with user8 in building CICS floor 1 from 2020-09-22T21:03:32.000Z to 2020-09-23T11:25:06.000Z (duration 857.833 minutes) - Traced user at AP CICS-101-1 - Contact user at AP CICS-107-1
+Contact with user8 in building CICS floor 1 from 2020-09-22T23:20:45.000Z to 2020-09-23T11:25:06.000Z (duration 720.617 minutes) - Traced user at AP CICS-101-1 - Contact user at AP CICS-110-1
+Contact with user8 in building CICS floor 1 from 2020-09-23T16:42:33.000Z to 2020-09-23T23:21:32.000Z (duration 402.717 minutes) - Traced user at AP CICS-101-1 - Contact user at AP CICS-104-1
+Contact with user8 in building CICS floor 1 from 2020-09-23T16:42:33.000Z to 2020-09-23T23:21:02.000Z (duration 402.217 minutes) - Traced user at AP CICS-101-1 - Contact user at AP CICS-107-1
+Contact with user8 in building CICS floor 1 from 2020-09-23T16:42:33.000Z to 2020-09-23T17:00:02.000Z (duration 21.2167 minutes) - Traced user at AP CICS-101-1 - Contact user at AP CICS-110-1
+Contact with user1 in building HR floor 1 from 2020-09-22T16:57:02.000Z to 2020-09-22T20:32:36.000Z (duration 211.217 minutes) - Traced user at AP HR-116-1 - Contact user at AP HR-108-1
+Contact with user1 in building HR floor 1 from 2020-09-22T07:39:46.000Z to 2020-09-22T17:12:20.000Z (duration 576.917 minutes) - Traced user at AP HR-116-1 - Contact user at AP HR-116-1
+Contact with user1 in building HR floor 1 from 2020-09-22T07:39:46.000Z to 2020-09-22T19:57:25.000Z (duration 742 minutes) - Traced user at AP HR-116-1 - Contact user at AP HR-116-1
+Contact with user1 in building HR floor 1 from 2020-09-22T19:57:27.000Z to 2020-09-22T20:32:36.000Z (duration 30.8 minutes) - Traced user at AP HR-116-1 - Contact user at AP HR-116-1
+Contact with user1 in building HR floor 1 from 2020-09-22T16:57:02.000Z to 2020-09-22T17:39:48.000Z (duration 38.4167 minutes) - Traced user at AP HR-137-1 - Contact user at AP HR-108-1
+Contact with user1 in building HR floor 1 from 2020-09-22T12:35:28.000Z to 2020-09-22T17:12:20.000Z (duration 281.217 minutes) - Traced user at AP HR-137-1 - Contact user at AP HR-116-1
+Contact with user1 in building HR floor 1 from 2020-09-22T17:12:32.000Z to 2020-09-22T17:39:48.000Z (duration 22.9167 minutes) - Traced user at AP HR-137-1 - Contact user at AP HR-116-1
+Contact with user1 in building HR floor 1 from 2020-09-23T14:25:20.000Z to 2020-09-23T14:56:28.000Z (duration 26.7833 minutes) - Traced user at AP HR-140-1 - Contact user at AP HR-116-1
+Contact with user1 in building HR floor 1 from 2020-09-22T17:57:51.000Z to 2020-09-22T20:36:05.000Z (duration 162.617 minutes) - Traced user at AP HR-121-1 - Contact user at AP HR-108-1
+Contact with user1 in building HR floor 1 from 2020-09-22T17:57:51.000Z to 2020-09-22T19:57:25.000Z (duration 123.95 minutes) - Traced user at AP HR-121-1 - Contact user at AP HR-116-1
+Contact with user1 in building HR floor 1 from 2020-09-22T17:57:51.000Z to 2020-09-22T20:37:20.000Z (duration 163.867 minutes) - Traced user at AP HR-121-1 - Contact user at AP HR-116-1
+Contact with user1 in building HR floor 1 from 2020-09-22T17:57:51.000Z to 2020-09-23T17:09:17.000Z (duration 1395.82 minutes) - Traced user at AP HR-121-1 - Contact user at AP HR-116-1
+Contact with user1 in building HR floor 1 from 2020-09-23T15:46:29.000Z to 2020-09-23T16:08:29.000Z (duration 22 minutes) - Traced user at AP HR-140-1 - Contact user at AP HR-116-1
+Contact with user2 in building HR floor 1 from 2020-09-22T13:44:34.000Z to 2020-09-22T20:36:05.000Z (duration 416.017 minutes) - Traced user at AP HR-116-1 - Contact user at AP HR-108-1
+Contact with user2 in building HR floor 1 from 2020-09-22T13:44:34.000Z to 2020-09-22T17:12:20.000Z (duration 212.267 minutes) - Traced user at AP HR-116-1 - Contact user at AP HR-116-1
+Contact with user2 in building HR floor 1 from 2020-09-22T13:44:34.000Z to 2020-09-22T19:57:25.000Z (duration 377.35 minutes) - Traced user at AP HR-116-1 - Contact user at AP HR-116-1
+Contact with user2 in building HR floor 1 from 2020-09-22T13:44:34.000Z to 2020-09-22T20:37:20.000Z (duration 417.267 minutes) - Traced user at AP HR-116-1 - Contact user at AP HR-116-1
+Contact with user6 in building HR floor 1 from 2020-09-22T16:57:02.000Z to 2020-09-22T17:17:15.000Z (duration 15.6 minutes) - Traced user at AP HR-116-1 - Contact user at AP HR-108-1
+Contact with user6 in building HR floor 1 from 2020-09-22T15:51:33.000Z to 2020-09-22T17:12:20.000Z (duration 85.4 minutes) - Traced user at AP HR-116-1 - Contact user at AP HR-116-1
+Contact with user6 in building HR floor 1 from 2020-09-22T18:10:24.000Z to 2020-09-22T20:36:05.000Z (duration 150.3 minutes) - Traced user at AP HR-116-1 - Contact user at AP HR-108-1
+Contact with user6 in building HR floor 1 from 2020-09-22T18:10:24.000Z to 2020-09-22T19:57:25.000Z (duration 111.633 minutes) - Traced user at AP HR-116-1 - Contact user at AP HR-116-1
+Contact with user6 in building HR floor 1 from 2020-09-22T18:10:24.000Z to 2020-09-22T20:37:20.000Z (duration 151.55 minutes) - Traced user at AP HR-116-1 - Contact user at AP HR-116-1
+Contact with user6 in building HR floor 1 from 2020-09-23T14:51:34.000Z to 2020-09-23T15:07:52.000Z (duration 16.3 minutes) - Traced user at AP HR-116-1 - Contact user at AP HR-116-1
+Contact with user10 in building HR floor 3 from 2020-09-23T17:07:44.000Z to 2020-09-23T20:39:49.000Z (duration 207.417 minutes) - Traced user at AP HR-342-1 - Contact user at AP HR-316A-1
+Contact with user10 in building HR floor 3 from 2020-09-23T22:53:14.000Z to 2020-09-23T23:11:14.000Z (duration 18 minutes) - Traced user at AP HR-342-1 - Contact user at AP HR-316A-1
+Contact with user1 in building HR floor 3 from 2020-09-23T18:42:27.000Z to 2020-09-23T20:26:04.000Z (duration 103.617 minutes) - Traced user at AP HR-316A-1 - Contact user at AP HR-316A-1
+Contact with user1 in building HR floor 3 from 2020-09-23T20:07:31.000Z to 2020-09-23T20:25:13.000Z (duration 17.7 minutes) - Traced user at AP HR-317-1 - Contact user at AP HR-316A-1
+Contact with user11 in building HR floor 3 from 2020-09-23T17:07:44.000Z to 2020-09-23T19:59:47.000Z (duration 166.983 minutes) - Traced user at AP HR-342-1 - Contact user at AP HR-316A-1
+Contact with user6 in building HR floor 3 from 2020-09-23T17:07:44.000Z to 2020-09-23T17:34:17.000Z (duration 21.15 minutes) - Traced user at AP HR-317-1 - Contact user at AP HR-316A-1
+Contact with user6 in building HR floor 3 from 2020-09-23T17:37:55.000Z to 2020-09-23T17:54:14.000Z (duration 16.3167 minutes) - Traced user at AP HR-317-1 - Contact user at AP HR-316A-1
+Contact with user6 in building HR floor 3 from 2020-09-23T17:54:31.000Z to 2020-09-23T18:39:34.000Z (duration 45.05 minutes) - Traced user at AP HR-317-1 - Contact user at AP HR-316A-1
+Contact with user12 in building PATT floor 1 from 2020-09-23T20:31:30.000Z to 2020-09-23T20:51:58.000Z (duration 20.4667 minutes) - Traced user at AP PATT-146-1 - Contact user at AP PATT-103-1
+Contact with user12 in building PATT floor 1 from 2020-09-23T21:49:30.000Z to 2020-09-23T22:44:38.000Z (duration 55.1333 minutes) - Traced user at AP PATT-146-1 - Contact user at AP PATT-103-1
+Contact with user12 in building PATT floor 1 from 2020-09-23T22:59:13.000Z to 2020-09-23T23:24:06.000Z (duration 24.8833 minutes) - Traced user at AP PATT-146-1 - Contact user at AP PATT-103-1
+Contact with user4 in building PATT floor 1 from 2020-09-23T17:01:52.000Z to 2020-09-23T18:53:46.000Z (duration 106.333 minutes) - Traced user at AP PATT-123-1 - Contact user at AP PATT-103-1
+Contact with user12 in building PATT floor 2 from 2020-09-23T20:51:58.000Z to 2020-09-23T21:13:25.000Z (duration 21.45 minutes) - Traced user at AP PATT-299F-2 - Contact user at AP PATT-230-1
+Contact with user9 in building PATT floor 0 from 2020-09-22T12:28:38.000Z to 2020-09-23T17:08:05.000Z (duration 1725.93 minutes) - Traced user at AP PATT-33-1 - Contact user at AP PATT-27-1
